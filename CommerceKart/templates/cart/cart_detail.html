@@ -1,8 +1,6 @@
 {% extends 'master.html' %}
 {% load cart_tag %}
 {% block body %}
-
-
 <section id="cart_items">
 		<div class="container">
 			<div class="breadcrumbs">
@@ -30,7 +28,7 @@
 								<a href=""><img src="{{value.image}}" alt=""></a>
 							</td>
 							<td class="cart_description">
-								<h4><a href="{{value.name}}"></a></h4>
+								<h4><a href="">{{value.name}}</a></h4>
 							</td>
 							<td class="cart_price">
 								<p>₹ {{value.price}}</p>

@@ -26,6 +26,9 @@ urlpatterns = [
     path('', views.Index, name='index'),
     path('signup/', views.signup, name='signup'),
     path('account/', include('django.contrib.auth.urls')),
+    path('contact_us',views.Contact_Page,name='contact_page'),
+    path('feedback/', views.feedback, name='feedback'),
+    path('logout',views.logout,name='logout')
 ]
 
 # Append URLs for the cart app to the urlpatterns list
@@ -35,7 +38,8 @@ urlpatterns += [
     path('cart/item_increment/<int:id>/', views.item_increment, name='item_increment'),
     path('cart/item_decrement/<int:id>/', views.item_decrement, name='item_decrement'),
     path('cart/cart_clear/', views.cart_clear, name='cart_clear'),
-    path('cart/cart-detail/m ', views.cart_detail, name='cart_detail'),
+    path('cart/cart-detail/', views.cart_detail, name='cart_detail'),
+
 ]
 
 # Serve media files during development

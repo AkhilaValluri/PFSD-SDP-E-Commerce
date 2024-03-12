@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
+import datetime
 
 
 # Create your models here.
@@ -54,3 +55,25 @@ class UserCreateForm(UserCreationForm):
         if User.objects.filter(email=self.cleaned_data['email']).exists():
             raise forms.ValidationError(self.fields['email'].error_message['exists'])
         return self.cleaned_data['email']
+
+
+class Order(models.Model):
+    image = models.ImageField(upload_to= 'ecommerce/order/image')
+    product = models.ForeignKey(Product,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    quantity = models.CharFiels()
+    price = models.ImageField()
+    address = models.TextField()
+    phone = models.CharField(max_length=10)
+    pincode = models.CharField(max_length=10)
+    date = models.DateField(default=datetime.datetime.today)
+
+class Feedback(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    country = models.CharField(max_length=100)
+    feedback_text = models.TextField()
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"

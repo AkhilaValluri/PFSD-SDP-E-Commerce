@@ -3,6 +3,7 @@ from app.models import Category,Product
 
 from django.contrib.auth import authenticate,login
 from app.models import UserCreateForm
+#from app.models import,FeedbackForm
 
 from django.contrib.auth.decorators import login_required
 from cart.cart import Cart
@@ -30,9 +31,9 @@ def signup(request):
             new_user = form.save()
             new_user = authenticate(
                 username = form.cleaned_data['username'],
-                password = form.cleaned_data['password'],
+                password1 = form.cleaned_data['password1'],
             )
-            login(request,new_user)
+            # login(request,new_user)
             return redirect('index')
     else:
         form = UserCreateForm()
@@ -84,3 +85,25 @@ def cart_clear(request):
 @login_required(login_url="/users/login")
 def cart_detail(request):
     return render(request, 'cart/cart_detail.html')
+
+
+def Contact_Page(request):
+    return render(request,'contact-us.html')
+
+
+#def feedback(request):
+    #if request.method == 'POST':
+       # form = FeedbackForm(request.POST)
+       # if form.is_valid():
+            #form.save()
+            #return redirect('index')  # Redirect to the index page or wherever you want
+    #else:
+        #form = FeedbackForm()
+
+    #context = {'form': form}
+    #return render(request, 'feedback.html', context)
+def feedback(request):
+    return render(request,'feedback.html')
+def logout(request):
+    request.session.clear()
+    return redirect('master')

@@ -68,8 +68,8 @@
 									<span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="#">Canada</a></li>
 									<li><a href="#">UK</a></li>
+									<li><a href="#">INDIA</a></li>
 								</ul>
 							</div>
 
@@ -91,6 +91,7 @@
 								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<li><a href="{% url 'feedback' %}"><i class="fa fa-star"></i> FeedBack</a></li>
 								<li><a href="/cart/cart_detail/"><i class="fa fa-shopping-cart"></i> Cart<span class="badge badge-secondary">{{request.session.cart|length}}</span></a></li>
                                 {% if user.is_authenticated %}
 								<li><a href="{% url 'logout' %}"><i class="fa fa-lock"></i> Logout</a></li>
@@ -124,7 +125,7 @@
 										<li><a href="product-details.html">Product Details</a></li>
 										<li><a href="checkout.html">Checkout</a></li>
 										<li><a href="cart.html">Cart</a></li>
-
+                                         <li><a href="cart.html">FeedBack</a></li>
 										<li><a href="login.html">Login</a></li>
                                     </ul>
                                 </li>
@@ -301,7 +302,7 @@
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
+					<p class="pull-left">Copyright @2024 CommerceKart Inc. All rights reserved.</p>
 					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
 				</div>
 			</div>
